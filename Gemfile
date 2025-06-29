@@ -15,14 +15,15 @@ gem "puma"
 # Use sqlite3 in development/test (or change to postgresql if you're using that)
 gem "sqlite3", group: [:development, :test]
 
+# For production (Render के लिए जरूरी)
+gem "pg", group: :production
+gem "rails_12factor", group: :production
+
 # For QR image rendering
 gem "chunky_png"
 
 # HTTP asset caching/compression and X-Sendfile acceleration
 gem "thruster", require: false
-
-# Uncomment if using Active Storage image transformations
-# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
