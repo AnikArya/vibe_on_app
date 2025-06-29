@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VibeOn | Live Concerts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 30px 0;
+      text-align: center;
+      border-bottom: 2px solid #ff2e63;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      color: #ff2e63;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .btn {
+      background-color: #ff2e63;
+      color: white;
+      padding: 16px 32px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 12px rgba(255, 46, 99, 0.3);
+      min-width: 180px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #ff4f7c;
+      box-shadow: 0 8px 20px rgba(255, 46, 99, 0.4);
+      transform: scale(1.05);
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel {
+      display: flex;
+      animation: slide 30s linear infinite;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .event-card {
+      flex: 0 0 280px;
+      background-color: #242424;
+      border-radius: 12px;
+      overflow: hidden;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .event-card:hover {
+      transform: scale(1.03);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .event-card-content {
+      padding: 15px;
+    }
+
+    .event-card-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.3rem;
+      color: #ff2e63;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .event-card-content p {
+      font-size: 0.95rem;
+      margin: 5px 0;
+      color: #ccc;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>VibeOn 🎧</h1>
+    <p>Your gateway to electrifying live concerts</p>
+  </header>
+
+  <div class="button-container">
+    <%= link_to "Book Now", new_booking_path, class: "btn" %>
+    <%= link_to "Create an Event", new_event_path, class: "btn" %>
+    <%= link_to "Upcoming Events", upcoming_events_path, class: "btn" %>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel">
+
+      <% [
+        {
+          title: "Diljit Dosanjh 's Concert",
+          location: "Goa",
+          date: "July 10, 2025",
+          info: "Asia's biggest beach music festival.",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7djvPgrk_86_7GbBv1bgXesR2oBXOzbZgmg&s"
+        },
+        {
+          title: "Arijit Singj 's Concert",
+          location: "Mumbai",
+          date: "July 14, 2025",
+          info: "Dubstep and trap madness all night.",
+          img: "https://mir-s3-cdn-cf.behance.net/projects/404/d2d0b9202398777.Y3JvcCw5MjIsNzIxLDAsMjE0.jpg"
+        },
+        {
+          title: "Anubhav Singh Bassi",
+          location: "Delhi",
+          date: "July 18, 2025",
+          info: "Top indie bands from across India.",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbtmnLEigGz5ESE8OYDDcbYgQSpPTzOdREyA&s"
+        },
+        {
+          title: "Jazz Under Stars",
+          location: "Bangalore",
+          date: "July 20, 2025",
+          info: "Romantic jazz evening under open sky.",
+          img: "https://images.unsplash.com/photo-1521334884684-d80222895322"
+        },
+        {
+          title: "Folk Harmony",
+          location: "Rajasthan",
+          date: "July 23, 2025",
+          info: "Desert tunes and traditional folk beats.",
+          img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3"
+        },
+        {
+          title: "Rap Cypher Night",
+          location: "Hyderabad",
+          date: "July 27, 2025",
+          info: "Underground rap battle in the city.",
+          img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb"
+        },
+        {
+          title: "Bollywood Beats",
+          location: "Chandigarh",
+          date: "Aug 1, 2025",
+          info: "Dance all night to Bollywood remixes.",
+          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyIORcQUul9bCW42ok1cUW2bHYVG5CqNZ1bg&s"
+        }
+      ].each do |event| %>
+        <%= link_to new_booking_path, class: "event-card" do %>
+          <img src="<%= event[:img] %>" alt="<%= event[:title] %>">
+          <div class="event-card-content">
+            <h3><%= event[:title] %></h3>
+            <p><strong>Location:</strong> <%= event[:location] %></p>
+            <p><strong>Date:</strong> <%= event[:date] %></p>
+            <p><strong>Info:</strong> <%= event[:info] %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2025 VibeOn. All rights reserved.
+  </footer>
+
+</body>
+</html>

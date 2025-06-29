@@ -1,0 +1,21 @@
+<h1 style="color: #ff2e63;">🎫 Book Your Event</h1>
+
+<%= form_with model: @booking, local: true do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :event_id, "Select Event" %><br>
+    <%= form.collection_select :event_id, @events, :id, :title, prompt: "Choose an Event" %>
+  </div>
+
+  <br>
+  <%= form.submit "Book Now", class: "btn" %>
+<% end %>

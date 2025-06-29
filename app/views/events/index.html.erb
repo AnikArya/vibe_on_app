@@ -1,0 +1,12 @@
+<h1>Upcoming Events</h1>
+
+<% @events.each do |event| %>
+  <div style="margin-bottom: 20px;">
+    <h2><%= event.title %></h2>
+    <p><strong>Description:</strong> <%= event.description %></p>
+    <p><strong>Location:</strong> <%= event.location %></p>
+    <p><strong>Date:</strong> <%= event.date.strftime("%d %b %Y, %I:%M %p") %></p>
+    <p><strong>Max Seats:</strong> <%= event.max_seats %></p>
+    <hr>
+  </div>
+<% end %>

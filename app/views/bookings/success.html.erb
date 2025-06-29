@@ -1,0 +1,70 @@
+<style>
+  .success-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #f4f9ff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+
+  .success-heading {
+    color: #28a745;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .booking-details {
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .booking-details p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+
+  .qr-section {
+    margin: 20px 0;
+  }
+
+  .verify-link {
+    display: inline-block;
+    margin-top: 20px;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .verify-link:hover {
+    background: #0056b3;
+  }
+</style>
+
+<div class="success-container">
+  <h1 class="success-heading">🎉 Booking Successful!</h1>
+
+  <div class="booking-details">
+    <p><strong>Name:</strong> <%= @booking.name %></p>
+    <p><strong>Email:</strong> <%= @booking.email %></p>
+    <p><strong>Event:</strong> <%= @booking.event.title %></p>
+    <p><strong>Location:</strong> <%= @booking.event.location %></p>
+    <p><strong>Date:</strong> <%= @booking.event.date.strftime("%d %b %Y") %></p>
+  </div>
+
+  <div class="qr-section">
+    <p>📱 Show this QR code at the event entrance:</p>
+    <div><%= raw @svg %></div>
+  </div>
+
+  <%= link_to "🔍 Verify Booking", verify_booking_path(@booking), class: "verify-link", target: "_blank" %>
+</div>
