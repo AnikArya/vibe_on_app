@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Main Rails gem
-gem "rails", "~> 7.1.5"
+gem "rails", "~> 8.0.3"
 
 # Ruby QR Code generator (for QR functionality)
 gem "rqrcode"
